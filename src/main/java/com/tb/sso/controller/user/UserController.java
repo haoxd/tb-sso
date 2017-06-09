@@ -15,8 +15,10 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value="/register",method=RequestMethod.GET)
-	public String register(){
+	public String register(){  
 		
+
+
 		return "register";
 	}
 
