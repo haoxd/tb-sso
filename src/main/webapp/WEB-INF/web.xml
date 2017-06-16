@@ -55,6 +55,11 @@
         <servlet-name>tb-sso</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
+    <!-- 双规则进入springMVC -->
+     <servlet-mapping>
+        <servlet-name>tb-sso</servlet-name>
+        <url-pattern>/service/*</url-pattern>
+    </servlet-mapping>
     
     <welcome-file-list>
     	<welcome-file>index.html</welcome-file>

@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
+
+<% 
+	request.setAttribute("ctx", "http://static.tb.com");	
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<link rel="shortcut icon" href="${ctx}/images/sso.ico">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <meta http-equiv="pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache,must-revalidate">
     <title>注册-个人用户</title>
-    <link type="text/css" rel="stylesheet" href="/css/regist.personal.css"/>
-    <link type="text/css" rel="stylesheet" href="/css/passport.base.css"/>
-    <script type="text/javascript" src="/js/jquery-1.2.6.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="${ctx}/css/regist.personal.css"/>
+    <link type="text/css" rel="stylesheet" href="${ctx}/css/passport.base.css"/>
+    <script type="text/javascript" src="${ctx}/js/jquery-1.2.6.min.js"></script>
 </head>
 <body>
     <script type="text/javascript">
@@ -79,8 +85,8 @@ function addToFavorite() {
 <!--shortcut end-->
 <div class="w" id="logo">
     <div>
-    	<a href="http://www.taotao.com/">
-    		<img src="/images/taotao-logo.gif" alt="京东商城" width="170" height="60"/>
+    	<a href="http://www.tb.com/">
+    		<img src="${ctx}/images/taotao-logo.gif" alt="京东商城" width="170" height="60"/>
     	</a> <b></b>
     </div>
 </div>
@@ -184,7 +190,8 @@ function addToFavorite() {
                             <label id="pwdRepeat_error"></label>
                         </div>
                     </div>
-					                    <div class="item" id="dphone">
+                    
+					    <div class="item" id="dphone">
                         <span class="label"><b class="ftx04">*</b>验证手机：</span>
 
                         <div class="fl item-ifo">
@@ -239,7 +246,7 @@ function addToFavorite() {
                 </div>
             </div>
             <div class="phone">
-                <img width="180" height="180" src="/images/phone-bg.jpg">
+                <img width="180" height="180" src="${ctx}/images/phone-bg.jpg">
             </div>
                         <span class="clr"></span>
         </form>
@@ -269,84 +276,11 @@ function addToFavorite() {
     <jsp:include page="../commons/footer-links.jsp"></jsp:include>
     <!-- links end -->
 </div>
-<script type="text/javascript" src="/js/register/jd.lib.js"></script>
-<script type="text/javascript" src="/js/register/jdThickBox.js"></script>
-<script type="text/javascript" src="/js/register/jdValidate.js"></script>
-<script type="text/javascript" src="/js/register/jdValidate.emReg.js"></script>
-<script type="text/javascript" src="/js/register/jdValidate.regSuccess.js"></script>
-
-
-<script id="box01" type="text/temp">
-<div class="form thickbox-form">
-    <div class="ac ftx-01 mb10">为了提升您的账户安全，请验证手机</div>
-
-    <div class="item"  id="dphone1">
-        <span class="label"><b class="ftx04">*</b>手机号码：</span>
-
-        <div class="fl item-ifo">
-            <input type="text" id="phone1" name="phone1" maxlength="11"  class="text" onblur="phone1Blur();" onfocus="phone1Focus();" onKeyup="phone1Keyup();"  onpaste="return  false"  autocomplete="off">
-            <i class="i-phone"></i>
-            <label id="phone1_succeed" ></label>
-            <label id="phone1_error" class=""></label>
-        </div>
-    </div>
-
-    <div class="item " id="mobileCodeDiv1">
-        <span class="label"><b class="ftx04">*</b>短信验证码：</span>
-
-        <div class="fl item-ifo">
-            <input type="text" maxlength="6" autocomplete="off"  class="text text-1" name="mobileCode1" onblur="mobileCode1Blur()" onfocus="mobileCode1Focus();"  style="ime-mode:disabled" id="mobileCode1">
-            <label class="blank invisible"></label>
-            <a class="btn" href="javascript:void(0);" onclick="sendMobileCode1();"   id="sendMobileCode1">
-                <span id="dyMobileButton1">获取短信验证码</span></a>
-
-            <span class="clr"></span>
-
-            <div class="msg-text" id="mobileCodeSucMessage1"></div>
-            <label id="mobileCode1_error"  class=""></label>
-            <label id="mobileCode1_succeed" class="blank invisible"></label>
-        </div>
-    </div>
-    <div class="item">
-        <span class="label">&nbsp;</span>
-        <input type="button" class="btn-img btn-verify" onclick="mobileReg();" value="立即验证">
-    </div>
-</div>
-
-
-
-</script>
-
-<script id="box02" type="text/temp">
-<div class="form thickbox-form">
-<div class="f-body">
-    <div class="item">
-        <span class="label"><b class="ftx04">*</b>请输入邮箱：</span>
-        <div class="fl item-ifo">
-            <input type="text" id="mail" name="mail" class="text"  onpaste="return  false" autocomplete="off"> 
-            <label id="mail_succeed" class="blank"></label>
-           <label id="mail_error" class=""></label>
-        </div>
-    </div>
-	
-		</div>
-	<div class="f-footer">
-    <div class="item">
-        <span class="label">&nbsp;</span>
-       <input type="button" class="btn-img btn-verify" value="发送邮箱验证" onclick="sendRegMail();">
-    </div>
-	</div>
-   </div>
-<script id="box04" type="text/temp">
-
-
-
-
-</script>
-<script id="box05" type="text/temp">
-
-</script>
-
+<script type="text/javascript" src="${ctx}/js/register/jd.lib.js"></script>
+<script type="text/javascript" src="${ctx}/js/register/jdThickBox.js"></script>
+<script type="text/javascript" src="${ctx}/js/register/jdValidate.js"></script>
+<script type="text/javascript" src="${ctx}/js/register/jdValidate.emReg.js"></script>
+<script type="text/javascript" src="${ctx}/js/register/jdValidate.regSuccess.js"></script>
 <script>
   var closeMobileReg='$closeMobileReg';
     $(function () {
@@ -438,7 +372,5 @@ function addToFavorite() {
     })
 
 </script>
-
-
 </body>
 </html>

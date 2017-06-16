@@ -9,19 +9,19 @@
 
 	<!-- 注解驱动 -->
 	<!-- 开启spring-mvc注解 ，默认配置的升级版  -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven >
 	    <!-- 消息转换器，true：默认最前执行，false：不执行 -->
-	   <!--  <mvc:message-converters register-defaults="true"> -->
+	  <mvc:message-converters register-defaults="true"> 
 	        <!--自定义string类型的消息转换器  -->
-	        <!-- <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+	       <bean class="org.springframework.http.converter.StringHttpMessageConverter">
 	            <constructor-arg index="0" value="utf-8"></constructor-arg>   
-	        </bean> -->
+	        </bean>
 	        <!--自定义HttpMessageConverter支持jsonp  -->
-	       <!--  <bean class="com.tb.common.sys.springmvc.extend.conterver.json.CallbackMappingJackson2HttpMessageConverter">
+	        <bean class="com.tb.common.sys.springmvc.extend.conterver.json.CallbackMappingJackson2HttpMessageConverter">
 	          <property name="callbackName" value="callback"/>  
 	        </bean>
-	    </mvc:message-converters>	  -->   
-	<!-- </mvc:annotation-driven> -->
+	    </mvc:message-converters>	
+	</mvc:annotation-driven> 
 	
 	<!-- 扫描Controller -->
 	<context:component-scan base-package="com.tb.sso.controller"/>

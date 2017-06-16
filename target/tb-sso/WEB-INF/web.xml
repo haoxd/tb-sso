@@ -41,7 +41,7 @@
 	
 	<!-- 配置SpringMVC框架入口 -->
 	<servlet>
-        <servlet-name>tb-web</servlet-name>
+        <servlet-name>tb-sso</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
         	<param-name>contextConfigLocation</param-name>
@@ -54,6 +54,11 @@
     <servlet-mapping>
         <servlet-name>tb-sso</servlet-name>
         <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    <!-- 双规则进入springMVC -->
+     <servlet-mapping>
+        <servlet-name>tb-sso</servlet-name>
+        <url-pattern>/service/*</url-pattern>
     </servlet-mapping>
     
     <welcome-file-list>
