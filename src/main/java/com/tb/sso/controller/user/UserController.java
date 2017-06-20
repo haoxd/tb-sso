@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tb.common.sys.util.CookieUtils;
 import com.tb.sso.controller.base.BaseController;
 import com.tb.sso.pojo.user.TbUser;
 import com.tb.sso.service.user.UserService;
 import com.tb.sso.sys.constast.ServiceCode.loginCode;
 import com.tb.sso.sys.constast.ServiceCode.registerCode;
-import com.tb.sso.sys.util.CookieUtils;
 
 @Controller()
 @RequestMapping("/user")
@@ -51,7 +51,7 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+	public String login(HttpServletRequest request,HttpServletResponse response) {
 		return "login";
 	}
 
@@ -156,6 +156,7 @@ public class UserController extends BaseController {
 		}
 		//登录成功保存在cookie
 		resp.put("status", loginCode.LOGINSUCC);
+	
 		CookieUtils.setCookie(request, response, loginCode.LOGIN_COOKIE_TOKEN_NAME, token);
 		} catch (Exception e) {
 			resp.put("status", loginCode.LOGINFAIL);
