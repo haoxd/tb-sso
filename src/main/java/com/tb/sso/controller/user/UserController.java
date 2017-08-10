@@ -184,22 +184,15 @@ public class UserController extends BaseController {
 	
 	/**
 	 * 更具生成token获取用户信息
+	 * （服务迁移）
 	 * @param token
 	 * @return
 	 */
-	@RequestMapping(value="/queryUserByToken/{token}",method=RequestMethod.GET)
-	public ResponseEntity<TbUser> queryUserByToken(@PathVariable("token")String token){
-	try {
-		TbUser user=	this.userService.queryUserByToken(token);
-		if(null ==user){
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-		}
-		return ResponseEntity.ok(user);
-	} catch (Exception e) {
-		e.printStackTrace();
-	}
+	@RequestMapping(value="/queryUserByToken/{token}",method=RequestMethod.GET,produces = "application/json; charset=utf-8")
+	public ResponseEntity<String> queryUserByToken(@PathVariable("token")String token){
 	
-	return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+	
+	return ResponseEntity.ok("tb-sso当中的查询用户服务没有了，请到tb-query-service系统当中调用restful接口或者dubbo服务");
 	}
 
 }

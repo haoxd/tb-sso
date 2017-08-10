@@ -1,0 +1,6 @@
+127.0.0.1 - - [06/Jul/2017:17:07:04 +0800] "GET /user/register.html HTTP/1.0" 200 23228 http-bio-8083-exec-1 400
+127.0.0.1 - - [06/Jul/2017:17:09:23 +0800] "GET /user/register.html HTTP/1.0" 200 23228 http-bio-8083-exec-2 16
+127.0.0.1 - - [06/Jul/2017:17:09:25 +0800] "GET /user/login.html HTTP/1.0" 200 12687 http-bio-8083-exec-3 136
+127.0.0.1 - - [06/Jul/2017:17:09:39 +0800] "POST /service/user/userLogin?r=0.24069299576939773 HTTP/1.0" 200 16 http-bio-8083-exec-4 780
+127.0.0.1 - - [06/Jul/2017:17:09:42 +0800] "GET /service/user/queryUserByToken/3d35c39ee3d10871528f008d98c4c804?callback=jsonp1499332181582&_=1499332181806 HTTP/1.0" 200 154 http-bio-8083-exec-5 158
+127.0.0.1 - - [06/Jul/2017:17:16:00 +0800] "GET /service/user/queryUserByToken/3d35c39ee3d10871528f008d98c4c804?callback=jsonp1499332560352&_=1499332560497 HTTP/1.0" 200 154 http-bio-8083-exec-6 11

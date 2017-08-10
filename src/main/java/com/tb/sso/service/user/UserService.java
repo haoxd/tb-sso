@@ -96,17 +96,17 @@ public class UserService {
 		}
 		//登录成功，将用户信息保存到redis
 		String token = tokenUtil.createUserToken(userName);
-		this.redis.set("SSO_TOKEN_"+token, oMapper.writeValueAsString(user),ssoCode.USER_REDIS_EFFECTIVE_TIME);
+		this.redis.set(ssoCode.SSO_TOKEN+token, oMapper.writeValueAsString(user),ssoCode.USER_REDIS_EFFECTIVE_TIME);
 		return token;		
 	}
 
 	public TbUser queryUserByToken(String token) {
-		String userData =this.redis.get("SSO_TOKEN_"+token);
+		String userData =this.redis.get(ssoCode.SSO_TOKEN+token);
 		if(StringUtils.isEmpty(userData)){
 			return null;
 		}
 		//重新设置redis用户信息的生存时间
-		this.redis.expire("SSO_TOKEN_"+token, ssoCode.USER_REDIS_EFFECTIVE_TIME);
+		this.redis.expire(ssoCode.SSO_TOKEN+token, ssoCode.USER_REDIS_EFFECTIVE_TIME);
 		try {
 			return oMapper.readValue(userData, TbUser.class);
 		} catch (Exception e) {
@@ -117,6 +117,6 @@ public class UserService {
 	}
 	
 	public void logout(String token){
-		this.redis.del("SSO_TOKEN_"+token);
+		this.redis.del(ssoCode.SSO_TOKEN+token);
 	}
 }
